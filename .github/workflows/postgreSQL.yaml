@@ -2,7 +2,9 @@ name: PostgreSQL Migration
 on: workflow_dispatch
 jobs:
   TestJob:
+    name: Install Liquibaswe
     runs-on: ubuntu-latest
     steps:
-      -uses: actions/checkout@v2
-      -uses: liquibase/liquibase-github-action@v4.23.2
+      - uses: actions/checkout@v2
+      - uses: liquibase/liquibase-github-action@v4.23.2
+      - run: liquibase -V
