@@ -4,6 +4,5 @@ jobs:
   TestJob:
   runs-on: ubuntu-latest
   steps:
-    -name: Download Liquibase
     -uses: actions/checkout@v2
     -uses: liquibase/liquibase-github-action@v4.23.2
