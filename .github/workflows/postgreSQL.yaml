@@ -28,7 +28,5 @@ jobs:
         unzip -qq -o -d liquibase liquibase.zip
         chmod +x liquibase
         export PATH=$PATH:$HOME/liquibase
-
-    - name: Run Liquibase Update
-      run: |
+        java --version
         liquibase -V
