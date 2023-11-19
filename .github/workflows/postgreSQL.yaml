@@ -28,4 +28,6 @@ jobs:
         unzip -o -d liquibase liquibase-${LB_VERSION}.zip
         ./liquibase/liquibase --version
         ls -lrth $HOME
+        ls -lrth ./
+        ls -lrth /
         pwd
