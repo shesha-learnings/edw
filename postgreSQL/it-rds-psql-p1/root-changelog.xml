@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <changeSet id="1" author="phData">
+        <tagDatabase  tag="rollback_all"/>
+    </changeSet>
+    <include file="$LIQUIBASE_HOME/$DB_ENGINE/$INSTANCE_NAME/globals/globals.sql"/>
+    <include file="$LIQUIBASE_HOME/$DB_ENGINE/$INSTANCE_NAME/globals/databases.sql"/>
+    <!--
+    <include file="$LIQUIBASE_HOME/$DB_ENGINE/$INSTANCE_NAME/databases/corel_web/conf/changelog.xml"/>
+    <include file="$LIQUIBASE_HOME/$DB_ENGINE/$INSTANCE_NAME/databases/ns_sf_sync/conf/changelog.xml"/>
+    <include file="$LIQUIBASE_HOME/$DB_ENGINE/$INSTANCE_NAME/databases/postgres/conf/changelog.xml"/>
+    <include file="$LIQUIBASE_HOME/$DB_ENGINE/$INSTANCE_NAME/databases/reviversoft/conf/changelog.xml"/>
+    <include file="$LIQUIBASE_HOME/$DB_ENGINE/$INSTANCE_NAME/databases/rvr_web_wzp_redirect/conf/changelog.xml"/>
+    <include file="$LIQUIBASE_HOME/$DB_ENGINE/$INSTANCE_NAME/databases/winzip/conf/changelog.xml"/>
+    <include file="$LIQUIBASE_HOME/$DB_ENGINE/$INSTANCE_NAME/databases/winzip_ipm/conf/changelog.xml"/>
+    -->
+</databaseChangeLog>

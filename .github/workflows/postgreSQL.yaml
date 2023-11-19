@@ -1,9 +1,39 @@
 name: PostgreSQL Migration
 on: workflow_dispatch
 jobs:
+<<<<<<< HEAD
   TestJob:
   runs-on: ubuntu-latest
   steps:
     -name: Download Liquibase
      uses: actions/checkout@v2
      uses: liquibase/liquibase-github-action@v4.23.2
+=======
+  liquibase:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: set Java home
+      run: |
+        JAVA_CMD=""
+        if [ -z ${JAVA_HOME+""} ];
+        then
+            echo "Using JAVA_HOME: $JAVA_HOME"
+            JAVA_CMD=$JAVA_HOME/bin/java
+        else
+            echo "Using default java"
+            JAVA_CMD=java
+        fi
+
+    - name: Download Liquibase
+      run: |
+        export LB_VERSION=4.23.0
+        mkdir -p $HOME/liquibase
+        cd $HOME/liquibase
+        curl -L https://github.com/liquibase/liquibase/releases/download/v${LB_VERSION}/liquibase-${LB_VERSION}.zip --output liquibase-${LB_VERSION}.zip
+        unzip -o -d liquibase liquibase-${LB_VERSION}.zip
+        ./liquibase/liquibase --version
+>>>>>>> 7b90fb8ee7fb456f8a77e2d09f965ca29a4a84db

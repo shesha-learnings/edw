@@ -1,0 +1,11 @@
+CREATE INDEX "Build_IX_ProductVersion_Id" ON rvr_web_wzp_redirect."Build" USING btree ("ProductVersion_Id");
+CREATE INDEX "Build_IX_PurchaseSetting_Id" ON rvr_web_wzp_redirect."Build" USING btree ("PurchaseSetting_Id");
+CREATE INDEX "LinkParameter_IX_Link_Id" ON rvr_web_wzp_redirect."LinkParameter" USING btree ("Link_Id");
+CREATE INDEX "LinkParameter_IX_Parameter_Id" ON rvr_web_wzp_redirect."LinkParameter" USING btree ("Parameter_Id");
+CREATE INDEX "LinkType_IX_Product_Id" ON rvr_web_wzp_redirect."LinkType" USING btree ("Product_Id");
+CREATE INDEX "Link_IX_Build_Id" ON rvr_web_wzp_redirect."Link" USING btree ("Build_Id");
+CREATE INDEX "Link_IX_Type_Id" ON rvr_web_wzp_redirect."Link" USING btree ("Type_Id");
+CREATE INDEX "ParameterName_IX_Product_Id" ON rvr_web_wzp_redirect."ParameterName" USING btree ("Product_Id");
+CREATE INDEX "Parameter_IX_Build_Id" ON rvr_web_wzp_redirect."Parameter" USING btree ("Build_Id");
+CREATE INDEX "Parameter_IX_Name_Id" ON rvr_web_wzp_redirect."Parameter" USING btree ("Name_Id");
+CREATE INDEX "ProductVersion_IX_Product_Id" ON rvr_web_wzp_redirect."ProductVersion" USING btree ("Product_Id");
