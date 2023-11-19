@@ -27,6 +27,6 @@ jobs:
         curl -o liquibase.zip -L https://github.com/liquibase/liquibase/archive/refs/tags/v4.23.0.zip --output liquibase.zip
         unzip -qq -o -d liquibase liquibase.zip
         chmod +x liquibase
-        export PATH=$PATH:$HOME/liquibase
+        export PATH=$PATH:$HOME/liquibase/liquibase-4.23.0
         java --version
         ./liquibase/liquibase-4.23.0/liquibase -V
