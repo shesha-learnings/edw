@@ -22,11 +22,9 @@ jobs:
 
     - name: Download Liquibase
       run: |
+        export LB_VERSION=4.23.0
         mkdir -p $HOME/liquibase
         cd $HOME/liquibase
-        curl -o liquibase.zip -L https://github.com/liquibase/liquibase/archive/refs/tags/v4.23.0.zip --output liquibase.zip
-        unzip -qq -o -d liquibase liquibase.zip
-        chmod +x liquibase
-        export PATH=$PATH:$HOME/liquibase/liquibase-4.23.0
-        java --version
-        ./liquibase/liquibase-4.23.0/liquibase -V
+        curl -L https://github.com/liquibase/liquibase/releases/download/v${LB_VERSION}/liquibase-${LB_VERSION}.zip --output liquibase-${LB_VERSION}.zip
+        unzip -o -d liquibase liquibase-${LB_VERSION}.zip
+        ./liquibase/liquibase --version
