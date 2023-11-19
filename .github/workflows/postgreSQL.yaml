@@ -29,4 +29,4 @@ jobs:
         chmod +x liquibase
         export PATH=$PATH:$HOME/liquibase
         java --version
-        ./liquibase/liquibase -V
+        ls -lrth
