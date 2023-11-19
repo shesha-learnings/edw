@@ -1,12 +1,6 @@
 name: PostgreSQL Migration
 on: workflow_dispatch
 jobs:
-  TestJob:
-  runs-on: ubuntu-latest
-  steps:
-    -name: Download Liquibase
-     uses: actions/checkout@v2
-     uses: liquibase/liquibase-github-action@v4.23.2
   liquibase:
     runs-on: ubuntu-latest
 
@@ -25,7 +19,6 @@ jobs:
             echo "Using default java"
             JAVA_CMD=java
         fi
-
     - name: Download Liquibase
       run: |
         export LB_VERSION=4.23.0
