@@ -1,10 +1,28 @@
 name: PostgreSQL Migration
 on: workflow_dispatch
 jobs:
-  TestJob:
-    name: Install Liquibase
+  liquibase:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: liquibase/liquibase-github-action@v7
-    - run: liquibase -V
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Download Liquibase
+      run: |
+        mkdir -p $HOME/liquibase
+        cd $HOME/liquibase
+        curl -L -o liquibase.tar.gz https://github.com/liquibase/liquibase/releases/download/liquibase-parent-4.19.1/liquibase-4.19.1.tar.gz
+        tar -xzf liquibase.tar.gz
+        chmod +x liquibase
+        export PATH=$PATH:$HOME/liquibase
+
+    - name: Run Liquibase Update
+      run: |
+        liquibase -V
