@@ -18,8 +18,8 @@ jobs:
       run: |
         mkdir -p $HOME/liquibase
         cd $HOME/liquibase
-        curl -L -o liquibase.tar.gz https://github.com/liquibase/liquibase/releases/download/liquibase-parent-4.19.1/liquibase-4.19.1.tar.gz
-        tar -xzf liquibase.tar.gz
+        curl -o liquibase.zip -L https://github.com/liquibase/liquibase/archive/refs/tags/v4.23.0.zip --output liquibase.zip
+        unzip -qq -o -d liquibase liquibase.zip
         chmod +x liquibase
         export PATH=$PATH:$HOME/liquibase
 
