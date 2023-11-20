@@ -1,0 +1,59 @@
+name: Deploy Liquibase
+
+on:
+  workflow_dispatch
+
+jobs:
+  deploy-liquibase:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        database: [postgresql, mysql, mssql, oracle]
+        environment: [dev, test, prod]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Deploy Liquibase
+      run: |
+        changelog_file="changelog-${{ matrix.database }}-${{ matrix.environment }}.xml"
+        connection_url=""
+        username=""
+        password=""
+
+        case ${{ matrix.database }} in
+          postgresql)
+            connection_url="jdbc:postgresql://<your-host>:5432/<your-database>"
+            username="<your-postgresql-username>"
+            password="<your-postgresql-password>"
+            ;;
+          mysql)
+            connection_url="jdbc:mysql://<your-host>:3306/<your-database>"
+            username="<your-mysql-username>"
+            password="<your-mysql-password>"
+            ;;
+          mssql)
+            connection_url="jdbc:sqlserver://<your-host>:1433;databaseName=<your-database>"
+            username="<your-mssql-username>"
+            password="<your-mssql-password>"
+            ;;
+          oracle)
+            connection_url="jdbc:oracle:thin:@<your-host>:1521:<your-database>"
+            username="<your-oracle-username>"
+            password="<your-oracle-password>"
+            ;;
+          *)
+            echo "Unsupported database engine: ${{ matrix.database }}"
+            exit 1
+            ;;
+        esac
+
+        echo "liquibase --changeLogFile=$changelog_file --url=$connection_url --username=$username --password=$password status"
