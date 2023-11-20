@@ -34,6 +34,7 @@ jobs:
             connection_url="jdbc:postgresql://<your-host>:5432/<your-database>"
             username="<your-postgresql-username>"
             password="<your-postgresql-password>"
+            changelog_file="changelog-${{ matrix.database }}-${{ matrix.environment }}.xml"
             ;;
           mysql)
             connection_url="jdbc:mysql://<your-host>:3306/<your-database>"
