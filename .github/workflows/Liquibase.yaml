@@ -31,7 +31,7 @@ jobs:
 
         case ${{ matrix.database }} in
           postgresql)
-            connection_url=${{ var.POSTGRES_URL }}
+            connection_url=${{ vars.POSTGRES_URL }}
             username="<your-postgresql-username>"
             password="<your-postgresql-password>"
             changelog_file="changelog-${{ matrix.database }}-${{ matrix.environment }}.xml"
