@@ -73,6 +73,6 @@ do
     else
         echo "${output}"
     fi
-    echo "Finish"
+    echo "Finished"
 done
 
