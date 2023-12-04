@@ -11,7 +11,3 @@ batch:
       buildspec: shared/de-shared-postgresql/de-shared-postgresql-dev.yaml
     - identifier: de_shared_mysql_dev
       buildspec: shared/de-shared-mysql/de-shared-mysql-dev.yaml
-    - identifier: de_shared_sqlserver_dev
-      buildspec: shared/de-shared-sqlserver/de-shared-sqlserver-dev.yaml
-    - identifier: de_shared_oracle_dev
-      buildspec: shared/de-shared-oracle/de-shared-oracle-dev.yaml
