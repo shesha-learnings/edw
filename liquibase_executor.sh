@@ -7,7 +7,7 @@ PASSWORD=$admin_password
 DATABASES=$databases
 INSTANCE_DIR=$instance_dir
 CHANGELOG_FILE="changelog-root.xml"
-OUTPUT_LOCATION="S3 Location" # TODO for storing generated sql for review
+OUTPUT_LOCATION="S3 Location" 
 DB_ENGINE="postgresql"
 DRIVER="org.postgresql.Driver"
 
