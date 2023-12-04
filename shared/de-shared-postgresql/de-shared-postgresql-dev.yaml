@@ -1,0 +1,38 @@
+version: 0.2
+
+env:
+  variables:
+    instance: "Data Enablement Shared PostgreSQL"
+    databases: "db_resource" #Comma separated list of Databases
+    instance_dir: "shared/de-shared-postgresql"
+    stage: "build"
+  secrets-manager:
+    admin_user: "de-shared-postgresql-dev-dba-cmk:master_username"
+    admin_password: "de-shared-postgresql-dev-dba-cmk:master_password"
+    host: "de-shared-postgresql-dev-dba-cmk:host"
+    port: "de-shared-postgresql-dev-dba-cmk:port"
+
+phases:
+  install:
+    on-failure: ABORT
+    commands:
+      - echo "Installing Liquibase."
+      - wget https://github.com/liquibase/liquibase/releases/download/v4.21.1/liquibase-4.21.1.tar.gz
+      - mkdir install
+      - tar -xf liquibase-4.21.1.tar.gz -C install
+      - $CODEBUILD_SRC_DIR/install/liquibase --version
+      - echo "TODO Instead of downloading Liquibqase, either use Artifactory or Docker image of Lioquibase."
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - echo "TODO Docker testing of Liquibase"
+  build:
+    on-failure: ABORT
+    commands:
+      - echo "Executing script"
+      - chmod +x $CODEBUILD_SRC_DIR/liquibase_executor.sh
+      - $CODEBUILD_SRC_DIR/liquibase_executor.sh
+  post_build:
+    on-failure: ABORT
+    commands:
+      - echo "Post build steps can be added here"
